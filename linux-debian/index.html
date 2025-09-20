@@ -47,9 +47,9 @@
               </ul>
               <p class="caption"><span class="caption-text">Cheatsheets</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../go/">Go</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../go/">Go</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../shell/">Shell</a>
                   </li>
@@ -180,8 +180,7 @@ new_debian_version=bookworm
 
 cat /etc/apt/sources.list /etc/apt/sources.list.d/* | grep $old_debian_version
 
-sed -i &quot;s/$old_debian_version/$new_debian_version/g&quot; /etc/apt/sources.list
-find /etc/apt/sources.list.d/ -type f | xargs sudo sed -i &quot;s/$old_debian_version/$new_debian_version/g&quot;
+find /etc/apt/sources.list /etc/apt/sources.list.d/ -type f | xargs sudo sed -i &quot;s/$old_debian_version/$new_debian_version/g&quot;
 
 cat /etc/apt/sources.list /etc/apt/sources.list.d/* | grep $new_debian_version
 
